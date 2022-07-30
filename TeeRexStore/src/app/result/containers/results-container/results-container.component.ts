@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ResultService } from '../../services/result-service.service';
 
 @Component({
   selector: 'app-results-container',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./results-container.component.scss']
 })
 export class ResultsContainerComponent implements OnInit {
-
-  constructor() { }
+  productListData$:any;
+  constructor(private resultsService:ResultService) { }
 
   ngOnInit(): void {
+    this.productListData$ = this.resultsService.getData();
   }
 
 }

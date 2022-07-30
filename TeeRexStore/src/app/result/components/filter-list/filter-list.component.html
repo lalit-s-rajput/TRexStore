@@ -1,1 +1,3 @@
-<p>filter-list works!</p>
+<div class="filter-type" *ngFor="let item of mockFilterData">
+    <app-filter-type [filterData]="item" (filterType)="filterType($event)"></app-filter-type>
+</div>
