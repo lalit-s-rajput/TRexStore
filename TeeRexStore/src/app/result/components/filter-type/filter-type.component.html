@@ -1,0 +1,6 @@
+<div class="filter-types-container">
+    <h3>{{filterData?.filterType}}</h3>
+    <div class="values" *ngFor="let item of filterData.data">
+        <span><input type="checkbox" (change)="filterItem(filterData.filterType,item,$event)"></span> <span>{{item}}</span>
+    </div>
+</div>
