@@ -4,7 +4,7 @@
     </div>
     <div class="products-array">
         <div class="filter-page">
-            <app-filter-list (filterData)="filterData($event)"></app-filter-list>
+            <app-filter-list [resetFilter]="resetFilter" (filterData)="filterData($event)"></app-filter-list>
         </div>
         <div class="products">
             <div *ngFor="let product of filteredData">
