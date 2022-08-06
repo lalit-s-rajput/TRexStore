@@ -13,7 +13,9 @@ export class ResultService {
     price:[],
     type:[]
   };
+  resetFilter = false;
   filterState = new BehaviorSubject(this.initialState);
+  resetFilterData = new BehaviorSubject(this.resetFilter);
   private dataUrl = 'https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems/shopping-cart/catalogue.json';
   constructor(private http: HttpClient) { }
 
@@ -28,7 +30,7 @@ export class ResultService {
     let modifiedFilteredData:any = {};
     let typeOfFilter = data.type.toLocaleLowerCase();
     this.filterState.subscribe((data)=>{
-      modifiedFilteredData = {...data};
+      modifiedFilteredData = JSON.parse(JSON.stringify(data));
     });
     if(modifiedFilteredData[typeOfFilter]){
       if(data.isChecked){
@@ -40,5 +42,9 @@ export class ResultService {
       }
     this.filterState.next(modifiedFilteredData);
     }
+  }
+
+  resetFilterState(){
+    this.filterState.next(this.initialState);
   }
 }

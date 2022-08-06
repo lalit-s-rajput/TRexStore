@@ -8,11 +8,6 @@ import { ResultService } from '../../services/result-service.service';
 })
 export class FilterTypeComponent implements OnInit {
   @Input() filterData: any;
-  @Input() set resetFilter(value:any){
-    if(value){
-      this.resetForm();
-    }
-  }
   @Output() filterType = new EventEmitter();
   form: any;
   
@@ -23,6 +18,11 @@ export class FilterTypeComponent implements OnInit {
   ngOnInit(): void {
     this.initializeForm();
     console.log(this.filterData);
+    this.resultsService.resetFilterData.subscribe((data)=>{
+      if(data){
+        this.resetForm();
+      }
+    });
   }
 
   initializeForm(){

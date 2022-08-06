@@ -33,15 +33,15 @@ export const filterData = [
         filterType: 'Price',
         data: [
             {
-                type: '0-200',
+                type: '0-250',
                 isSelected: false
             },
             {
-                type: '200-400',
+                type: '251-400',
                 isSelected: false
             },
             {
-                type: '450',
+                type: '401-500',
                 isSelected: false
             },
         ]
