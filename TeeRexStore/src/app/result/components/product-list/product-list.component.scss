@@ -2,6 +2,9 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    .hide-filters-page{
+        display: none;
+    }
     .filter-page{
         flex: 1;
         box-shadow: rgba(0,0,0,0.35) 00px 5px 15px;

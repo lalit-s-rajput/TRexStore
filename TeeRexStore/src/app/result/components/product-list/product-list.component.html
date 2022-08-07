@@ -3,7 +3,7 @@
         <app-product-search (searchData)="searchData($event)"></app-product-search>
     </div>
     <div class="products-array">
-        <div class="filter-page">
+        <div [ngClass]="isDesktopMode ? 'filter-page' : 'hide-filters-page' ">
             <app-filter-list [resetFilter]="resetFilter" (filterData)="filterData($event)"></app-filter-list>
         </div>
         <div class="products">
