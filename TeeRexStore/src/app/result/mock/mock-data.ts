@@ -1,18 +1,66 @@
 export const filterData = [
     {
         filterType: 'Color',
-        data: ['black','blue','pink']
+        data: [
+            {
+                type: 'black',
+                isSelected: false
+            },
+            {
+                type: 'blue',
+                isSelected: false
+            },
+            {
+                type: 'pink',
+                isSelected: false
+            },
+        ]
     },
     {
         filterType: 'Gender',
-        data: ['Men','Women']
+        data: [
+            {
+                type: 'Men',
+                isSelected: false
+            },
+            {
+                type: 'Women',
+                isSelected: false
+            },
+        ]
     },
     {
         filterType: 'Price',
-        data: ['0-200','200-400','450']
+        data: [
+            {
+                type: '0-250',
+                isSelected: false
+            },
+            {
+                type: '251-400',
+                isSelected: false
+            },
+            {
+                type: '401-500',
+                isSelected: false
+            },
+        ]
     },
     {
         filterType: 'Type',
-        data: ['Polo','Hoodie','Basic']
+        data: [
+            {
+                type: 'Polo',
+                isSelected: false
+            },
+            {
+                type: 'Hoodie',
+                isSelected: false
+            },
+            {
+                type: 'Basic',
+                isSelected: false
+            },
+        ]
     },
 ];

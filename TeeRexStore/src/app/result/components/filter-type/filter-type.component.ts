@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-
+import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
+import { AbstractControl, FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ResultService } from '../../services/result-service.service';
 @Component({
   selector: 'app-filter-type',
   templateUrl: './filter-type.component.html',
@@ -8,16 +9,39 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class FilterTypeComponent implements OnInit {
   @Input() filterData: any;
   @Output() filterType = new EventEmitter();
-  constructor() { }
+  form: any;
+  
+  constructor(private resultsService: ResultService) { 
+    
+  }
 
   ngOnInit(): void {
+    this.initializeForm();
     console.log(this.filterData);
+    this.resultsService.resetFilterData.subscribe((data)=>{
+      if(data){
+        this.resetForm();
+      }
+    });
+  }
+
+  initializeForm(){
+    this.form = new FormGroup({
+      checkArray: new FormArray([
+      ])
+    });
   }
 
   filterItem(type:string,value:string,event:any){
-    console.log(type);
-    console.log(value);
-    this.filterType.emit({type:type,value:value});
+    const isChecked = (event.target as HTMLInputElement).checked;
+    const filterData = {type:type,value:value,isChecked:isChecked};
+    this.resultsService.setFilterState(filterData);
+    // this.filterType.emit(filterData);
   }
 
+  resetForm(){
+    this.filterData?.data?.forEach((item:any) => {
+      item.isSelected = false;
+    });
+  }
 }
