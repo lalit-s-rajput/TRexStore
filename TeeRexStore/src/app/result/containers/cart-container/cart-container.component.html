@@ -1,12 +1,21 @@
 <h2>Shopping Cart</h2>
-<div class="cart-container">
-    <div *ngIf="productsArray.length; else cartEmpty">
-        <div *ngFor="let item of productsArray">
-            <app-cart-item-container [product]="item" (incrementProdCount)="incrementProdCount($event)" (decrementProdCount)="decrementProdCount($event)"></app-cart-item-container>
-        </div>
+<div class="cart-container" *ngIf="productsArray.length; else cartEmpty">
+  <div>
+    <div *ngFor="let item of productsArray">
+      <app-cart-item-container
+        [product]="item"
+        (incrementProdCount)="incrementProdCount($event)"
+        (decrementProdCount)="decrementProdCount($event)"
+      ></app-cart-item-container>
     </div>
+  </div>
+  <div class="box-underline"></div>
+  <div class="total-amount-container">
+    <span class="amount-text"><strong>Total Amount</strong></span
+    ><span class="amount">Rs. {{totalCount}}</span>
+  </div>
 </div>
 
 <ng-template #cartEmpty>
-    <h3><strong>Your Cart is empty!</strong></h3>
+  <h3><strong>Your Cart is empty!</strong></h3>
 </ng-template>
