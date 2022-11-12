@@ -1,0 +1,15 @@
+<div class="products-container">
+    <div class="search-product">
+        <app-product-search (searchData)="searchData($event)" (showFilterIcon)="showFilterIcon($event)"></app-product-search>
+    </div>
+    <div class="products-array">
+        <div #filterPage [ngClass]="isDesktopMode ? 'filter-page' : 'hide-filters-page' ">
+            <app-filter-list (hideFilterOnMobile)="hideFilterOnMobile($event)" [resetFilter]="resetFilter" (filterData)="filterData($event)"></app-filter-list>
+        </div>
+        <div class="products">
+            <div *ngFor="let product of filteredData">
+                <app-product-card [product]="product"></app-product-card>
+            </div>
+        </div>
+    </div>
+</div>

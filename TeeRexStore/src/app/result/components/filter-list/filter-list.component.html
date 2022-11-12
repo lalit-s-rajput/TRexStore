@@ -1,0 +1,5 @@
+<div (click)="hideFilter()" [ngClass]="ismobileMode ? 'show-icon' : 'hide-icon'"><i class="fa fa-close" style="font-size:36px"></i>
+</div>
+<div class="filter-type" *ngFor="let item of mockFilterData">
+    <app-filter-type [filterData]="item" (filterType)="filterType($event)"></app-filter-type>
+</div>

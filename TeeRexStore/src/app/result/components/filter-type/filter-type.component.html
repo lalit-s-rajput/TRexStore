@@ -1,0 +1,8 @@
+<form>
+    <div class="filter-types-container">
+        <h3>{{filterData?.filterType}}</h3>
+        <div class="values" *ngFor="let item of filterData.data; let i=index">
+            <label><input type="checkbox" [(ngModel)]="item.isSelected" name="item.type" (change)="filterItem(filterData.filterType,item.type,$event)">{{item?.type}}</label>
+        </div>
+    </div>
+</form>

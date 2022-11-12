@@ -1,0 +1,15 @@
+.cart-container {
+  text-decoration: underline;
+  .box-underline {
+    width: 50%;
+    background-color: black;
+    height: 2px;
+  }
+  .total-amount-container{
+    margin: 20px;
+    width: 50%;
+  }
+  .amount-text{
+    margin: 50px;
+  }
+}

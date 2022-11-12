@@ -1,0 +1,11 @@
+<div class="product-box">
+    <div class="image-section">
+        <div class="image-box" [ngStyle]="{'background-image':getUrl(_product)}">
+            <strong>{{_product?.name}}</strong>
+        </div>
+    </div>
+    <div class="price-section">
+        <span class="price">RS {{_product?.price}}</span>
+        <span class="add-to-cart-button"><button class="product-button" (click)="addToCart(_product)" [disabled]="!_product.quantity">Add to cart</button></span>
+    </div>
+</div>
