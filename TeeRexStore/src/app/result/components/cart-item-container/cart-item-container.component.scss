@@ -1,0 +1,45 @@
+.cart-item-block{
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+    .image-block{
+        width: 100px;
+        height: 100px;
+        border: 1px solid gray;
+        background-color: lightgray;
+        background-size: 100% 100%;
+    }
+    .m-20{
+        margin: 0 20px;
+    }
+    .name-and-price-block{
+        display: flex;
+        flex-direction: column;
+        width: 10%;
+    }
+    .delete-button{
+        background-color: red;
+        border: 1px black;
+        color: white;
+        padding: 5px 5px;
+        text-decoration: none;
+        font-size: 14px;
+        cursor: pointer;
+    }
+    .increment-button{
+        text-decoration: none;
+        font-size: 14px;
+        cursor: pointer;
+        margin: 0 5px;
+    }
+    .decrement-button{
+        text-decoration: none;
+        font-size: 14px;
+        cursor: pointer;
+        margin: 0 5px;
+    }
+    input{
+        width: 20px;
+        text-align: center;
+    }
+}

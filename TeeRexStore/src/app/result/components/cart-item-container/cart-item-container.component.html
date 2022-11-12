@@ -1,0 +1,16 @@
+<div class="cart-item-block">
+    <div class="image-block m-20" [ngStyle]="{'background-image':getUrl()}">
+    </div>
+    <div class="name-and-price-block m-20">
+        <div class="p-name"><strong>{{product.name}}</strong></div>
+        <div class="p-quantity"><strong>Rs {{product.price}}</strong></div>
+    </div>
+    <div class="quantity-block m-20">
+        <button [disabled]="!product.quantity" (click)="incrementCount(product)" class="increment-button"><strong>+</strong></button><input
+            [value]="product.cartCount" /><button [disabled]="!product.cartCount" (click)="decrementCount(product)"
+            class="decrement-button"><strong>-</strong></button>
+    </div>
+    <div>
+        <button class="delete-button" (click)="removeItem()">Delete</button>
+    </div>
+</div>

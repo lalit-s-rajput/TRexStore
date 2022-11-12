@@ -1,0 +1,26 @@
+.navbar-section{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid lightgray;
+    background: lightgray;
+    .product-name{
+        width: 20%;
+        margin: 0 20px;
+    }
+    .navbar-links{
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    .margin-20{
+        margin: 3px 20px;
+        cursor: pointer;
+    }
+    .add-to-cart-link{
+        display: flex;
+        flex-direction: row;
+    }
+}

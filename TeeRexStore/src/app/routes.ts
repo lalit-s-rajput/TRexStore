@@ -9,7 +9,17 @@ export const allRoutes: Route[] = [
         children:[
             {
                 path:'',
-                component:fromContainers.ResultsContainerComponent
+                component:fromContainers.NavbarContainerComponent,
+                children: [
+                    {
+                        path: 'results',
+                        component: fromContainers.ResultsContainerComponent
+                    },
+                    {
+                        path: 'cart',
+                        component: fromContainers.CartContainerComponent
+                    }
+                ]
             }
         ]
     }

@@ -1,3 +1,4 @@
+import { CartItemContainerComponent } from "./cart-item-container/cart-item-container.component";
 import { FilterListComponent } from "./filter-list/filter-list.component";
 import { FilterTypeComponent } from "./filter-type/filter-type.component";
 import { ProductCardComponent } from "./product-card/product-card.component";
@@ -9,5 +10,6 @@ export const components: any[] = [
     FilterTypeComponent,
     ProductCardComponent,
     ProductListComponent,
-    ProductSearchComponent
+    ProductSearchComponent,
+    CartItemContainerComponent
 ];
