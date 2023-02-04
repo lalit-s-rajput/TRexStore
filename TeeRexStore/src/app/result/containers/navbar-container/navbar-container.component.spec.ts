@@ -1,16 +1,25 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Router, ActivatedRoute } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { CartService } from '../../services/cart-service.service';
 
 import { NavbarContainerComponent } from './navbar-container.component';
 
 describe('NavbarContainerComponent', () => {
   let component: NavbarContainerComponent;
   let fixture: ComponentFixture<NavbarContainerComponent>;
-
+  let router: Router;
+  let activatedRoute: ActivatedRoute;
+  let cartService: CartService;
   beforeEach(async () => {
+    const cartServiceStub = jasmine.createSpyObj('CartService', [
+      'getCartArrayCount',
+    ]);
     await TestBed.configureTestingModule({
-      declarations: [ NavbarContainerComponent ]
-    })
-    .compileComponents();
+      imports:[RouterTestingModule],
+      declarations: [NavbarContainerComponent],
+      providers: [{ provide: CartService, useValue: cartServiceStub }],
+    }).compileComponents();
   });
 
   beforeEach(() => {
