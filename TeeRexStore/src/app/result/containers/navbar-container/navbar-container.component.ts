@@ -8,7 +8,7 @@ import { CartService } from '../../services/cart-service.service';
   styleUrls: ['./navbar-container.component.scss'],
 })
 export class NavbarContainerComponent implements OnInit {
-  cartDataCount:number;
+  cartDataCount: number;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -16,13 +16,13 @@ export class NavbarContainerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.cartService.getCartArrayCount().subscribe((data:number)=>{
+    this.cartService.getCartArrayCount().subscribe((data: number) => {
       this.cartDataCount = data;
     });
   }
 
   navigateToProducts() {
-    this.router.navigate(['results', { relativeTo: this.route }]);
+    this.router.navigate(['', { relativeTo: this.route }]);
   }
 
   navigateToCart() {
