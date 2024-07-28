@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CartService } from '../../services/cart-service.service';
+import { CartService } from '../../../cart/services/cart-service.service';
 
 @Component({
   selector: 'app-navbar-container',

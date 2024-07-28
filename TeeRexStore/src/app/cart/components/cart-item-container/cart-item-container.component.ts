@@ -4,30 +4,29 @@ import { CartService } from '../../services/cart-service.service';
 @Component({
   selector: 'app-cart-item-container',
   templateUrl: './cart-item-container.component.html',
-  styleUrls: ['./cart-item-container.component.scss']
+  styleUrls: ['./cart-item-container.component.scss'],
 })
 export class CartItemContainerComponent implements OnInit {
-  @Input() product:any;
+  @Input() product: any;
   @Output() incrementProdCount = new EventEmitter();
   @Output() decrementProdCount = new EventEmitter();
-  constructor(private cartService:CartService) { }
+  constructor(private cartService: CartService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  getUrl(){
+  getUrl() {
     return `url(${this.product.imageURL})`;
   }
 
-  removeItem(){
+  removeItem() {
     this.cartService.removeProductFromCart(this.product);
   }
 
-  incrementCount(product:any){
+  incrementCount(product: any) {
     this.incrementProdCount.emit(product);
   }
 
-  decrementCount(product:any){
+  decrementCount(product: any) {
     this.decrementProdCount.emit(product);
   }
 }

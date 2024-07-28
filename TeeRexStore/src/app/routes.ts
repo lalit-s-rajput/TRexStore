@@ -20,7 +20,10 @@ export const allRoutes: Route[] = [
           },
           {
             path: 'cart',
-            component: fromContainers.CartContainerComponent,
+            loadChildren: () =>
+              import('./cart/cart-routing.module').then(
+                (m) => m.CartRoutingModule
+              ),
           },
         ],
       },

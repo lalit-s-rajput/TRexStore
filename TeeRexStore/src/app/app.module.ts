@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ResultModule } from './result/result.module';
+import { CartModule } from './cart/cart.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -18,6 +19,7 @@ import { ResultModule } from './result/result.module';
     HttpClientModule,
     BrowserAnimationsModule,
     ResultModule,
+    CartModule,
     ToastrModule.forRoot(),
   ],
   providers: [],

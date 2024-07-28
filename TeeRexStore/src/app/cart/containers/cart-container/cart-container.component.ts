@@ -4,36 +4,35 @@ import { CartService } from '../../services/cart-service.service';
 @Component({
   selector: 'app-cart-container',
   templateUrl: './cart-container.component.html',
-  styleUrls: ['./cart-container.component.scss']
+  styleUrls: ['./cart-container.component.scss'],
 })
 export class CartContainerComponent implements OnInit {
-  // @Input()
   productsArray = [];
   totalCount = 0;
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
-    this.cartService.getCartData().subscribe((data:any)=>{
+    this.cartService.getCartData().subscribe((data: any) => {
       this.productsArray = data;
       this.getCartAmount();
     });
   }
 
-  getCartAmount(){
-    if(this.productsArray){
+  getCartAmount() {
+    if (this.productsArray) {
       this.totalCount = 0;
-      this.productsArray.forEach((product:any)=>{
-        this.totalCount+=product.cartCount*product.price;
+      this.productsArray.forEach((product: any) => {
+        this.totalCount += product.cartCount * product.price;
       });
     }
   }
-  
-  incrementProdCount(product:any){
+
+  incrementProdCount(product: any) {
     this.cartService.incrementProductCountInCart(product);
     this.getCartAmount();
   }
 
-  decrementProdCount(product:any){
+  decrementProdCount(product: any) {
     this.cartService.decrementProductCountInCart(product);
     this.getCartAmount();
   }
