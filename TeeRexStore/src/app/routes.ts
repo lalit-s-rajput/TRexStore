@@ -14,16 +14,12 @@ export const allRoutes: Route[] = [
           {
             path: '',
             loadChildren: () =>
-              import('./result/result-routing.module').then(
-                (m) => m.ResultRoutingModule
-              ),
+              import('./result/result.module').then((m) => m.ResultModule),
           },
           {
             path: 'cart',
             loadChildren: () =>
-              import('./cart/cart-routing.module').then(
-                (m) => m.CartRoutingModule
-              ),
+              import('./cart/cart.module').then((m) => m.CartModule),
           },
         ],
       },

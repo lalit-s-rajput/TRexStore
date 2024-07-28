@@ -5,9 +5,10 @@ import * as fromContainers from './containers';
 import * as fromComponents from './components';
 
 import { ResultRoutingModule } from './result-routing.module';
+import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [fromContainers.containers, fromComponents.components],
-  imports: [BrowserModule, FormsModule, ResultRoutingModule],
+  imports: [CommonModule, FormsModule, ResultRoutingModule],
   providers: [],
 })
 export class ResultModule {}
