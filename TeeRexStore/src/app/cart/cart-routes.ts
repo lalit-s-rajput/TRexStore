@@ -2,7 +2,7 @@ import { Route } from '@angular/router';
 import * as cartContainers from './containers';
 export const cartRoutes: Route[] = [
   {
-    path: 'cart',
+    path: '',
     component: cartContainers.CartContainerComponent,
   },
 ];
