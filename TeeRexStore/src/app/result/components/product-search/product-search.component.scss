@@ -2,10 +2,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    .hide-icon{
+        display: none;
+    }
+    .show-icon{
+        display: inline;
+    }
 }
 input{
     border: none;
     border-bottom: 2px solid black;
+    width: 250px;
 }
 input:focus{
     outline: none;

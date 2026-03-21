@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ResultService } from '../../services/result-service.service';
 @Component({
@@ -44,5 +44,4 @@ export class FilterTypeComponent implements OnInit {
       item.isSelected = false;
     });
   }
-
 }
