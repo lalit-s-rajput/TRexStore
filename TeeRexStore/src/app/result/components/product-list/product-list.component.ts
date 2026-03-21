@@ -23,7 +23,9 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
     this.resultSrvice.filterState.subscribe((item)=>{
-      this.filterData(item);
+      if(this._productData){
+        this.filterData(item);
+      }
     });
   }
 
@@ -38,17 +40,27 @@ export class ProductListComponent implements OnInit {
     for(let filterType in filterArray){
       if(filterArray[filterType].length){
         filterArray[filterType].forEach((type: string) => {
-          this.filteredData = this.filteredData?.filter((item:any)=>{
-            return item[filterType.toLowerCase()].toLowerCase() === type.toLocaleLowerCase();
-          });
+          if(filterType === 'price'){
+            let priceFilterData = type.split('-');
+            this.filteredData = this.filteredData?.filter((item:any)=>{
+              return (item[filterType.toLowerCase()] >= +priceFilterData[0] && item[filterType.toLowerCase()] <= +priceFilterData[1]);
+            });
+          } else {
+            this.filteredData = this.filteredData?.filter((item:any)=>{
+              return item[filterType.toLowerCase()].toLowerCase() === type.toLocaleLowerCase();
+            });
+          }
         });
       }
     };
     this.resetFilter = false;
+    this.resultSrvice.resetFilterData.next(this.resetFilter);
     if(!this.filteredData?.length){
       this.filteredData = this._productData;
       this.notification.showError('Result set is empty! Please try new filter or search.','Error!');
       this.resetFilter = true;
+      this.resultSrvice.resetFilterData.next(this.resetFilter);
+      this.resultSrvice.resetFilterState();
     }
   }
 }
