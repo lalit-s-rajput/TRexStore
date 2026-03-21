@@ -27,13 +27,8 @@ export class FilterTypeComponent implements OnInit {
   }
 
   initializeForm(){
-<<<<<<< HEAD
-    this.form = new FormGroup({
-      checkArray: new FormArray([
-=======
     this.form = new UntypedFormGroup({
       checkArray: new UntypedFormArray([
->>>>>>> lrajput/angular-migrate
       ])
     });
   }
