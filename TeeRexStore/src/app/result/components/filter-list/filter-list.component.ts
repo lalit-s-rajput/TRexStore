@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {filterData} from '../../mock/mock-data';
 @Component({
   selector: 'app-filter-list',
@@ -8,11 +8,15 @@ import {filterData} from '../../mock/mock-data';
 export class FilterListComponent implements OnInit {
   mockFilterData: any;
   @Output() filterData = new EventEmitter();
+  @Input() set resetFilter(value:any){
+    if(value){
+      this.mockFilterData = filterData;
+    }
+  }
   constructor() { }
 
   ngOnInit(): void {
     this.mockFilterData = filterData;
-    console.log(this.mockFilterData);
   }
 
   filterType(data:any){
