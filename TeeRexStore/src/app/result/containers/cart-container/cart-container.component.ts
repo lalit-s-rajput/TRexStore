@@ -21,6 +21,7 @@ export class CartContainerComponent implements OnInit {
 
   getCartAmount(){
     if(this.productsArray){
+      this.totalCount = 0;
       this.productsArray.forEach((product:any)=>{
         this.totalCount+=product.cartCount*product.price;
       });
@@ -29,9 +30,11 @@ export class CartContainerComponent implements OnInit {
   
   incrementProdCount(product:any){
     this.cartService.incrementProductCountInCart(product);
+    this.getCartAmount();
   }
 
   decrementProdCount(product:any){
     this.cartService.decrementProductCountInCart(product);
+    this.getCartAmount();
   }
 }
