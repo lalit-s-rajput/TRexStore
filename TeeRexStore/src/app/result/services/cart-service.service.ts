@@ -6,30 +6,41 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CartService {
   private cartArray:any = new BehaviorSubject([]);
+  private cartArrayCount = new BehaviorSubject<number>(0);
   constructor() { }
 
   addToCartArray(product:any){
-    // this.cartArray.next([...this.cartArray.value,product]);
-    if(this.cartArray.value.length){
-      this.cartArray.value.forEach((productData:any)=>{
-        if(productData.id===product.id){
-          productData.quantity-=1;
-          product.cartCount+=1;
-        }else{
-          product.cartCount = 1;
-          this.cartArray.next([...this.cartArray.value,product]);
-          console.log(this.cartArray.value);
+    let ifIsInCart = false;
+    if (this.cartArray.value.length) {
+      this.cartArray.value.forEach((productData: any) => {
+        if (productData.id === product.id) {
+          ifIsInCart = true;
+          productData.quantity -= 1;
+          product.cartCount += 1;
+          this.cartArrayCount.next(this.cartArrayCount.value + 1);
         }
       });
-    }else{
+      if (!ifIsInCart) {
+        product.cartCount = 1;
+        product.quantity -= 1;
+        this.cartArray.next([...this.cartArray.value, product]);
+        this.cartArrayCount.next(this.cartArrayCount.value + 1);
+      }
+    } else {
       product.cartCount = 1;
-      product.quantity-=1;
+      product.quantity -= 1;
       this.cartArray.next([...this.cartArray.value,product]);
+      this.cartArrayCount.next(this.cartArray.value.length);
     }
   }
 
+
   getCartData(){
     return this.cartArray;
+  }
+
+  getCartArrayCount(){
+    return this.cartArrayCount;
   }
 
   incrementProductCountInCart(product:any){
@@ -40,6 +51,7 @@ export class CartService {
         return;
       }
     });
+    this.cartArrayCount.next(this.cartArrayCount.value+1);
   }
 
   decrementProductCountInCart(product:any){
@@ -50,6 +62,7 @@ export class CartService {
         return;
       }
     });
+    this.cartArrayCount.next(this.cartArrayCount.value-1);
   }
 
   removeProductFromCart(product:any){
@@ -58,5 +71,6 @@ export class CartService {
         return item.id!==product.id;
       });
     this.cartArray.next(dataArray);
+    this.cartArrayCount.next(this.cartArrayCount.value);
   }
 }

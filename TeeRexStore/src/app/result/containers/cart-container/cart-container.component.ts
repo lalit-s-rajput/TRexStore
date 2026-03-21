@@ -8,15 +8,25 @@ import { CartService } from '../../services/cart-service.service';
 })
 export class CartContainerComponent implements OnInit {
   // @Input()
-  productsArray = []; 
+  productsArray = [];
+  totalCount = 0;
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
     this.cartService.getCartData().subscribe((data:any)=>{
       this.productsArray = data;
+      this.getCartAmount();
     });
   }
 
+  getCartAmount(){
+    if(this.productsArray){
+      this.productsArray.forEach((product:any)=>{
+        this.totalCount+=product.cartCount*product.price;
+      });
+    }
+  }
+  
   incrementProdCount(product:any){
     this.cartService.incrementProductCountInCart(product);
   }

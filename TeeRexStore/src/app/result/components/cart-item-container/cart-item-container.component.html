@@ -6,7 +6,9 @@
         <div class="p-quantity"><strong>Rs {{product.price}}</strong></div>
     </div>
     <div class="quantity-block m-20">
-        <button (click)="incrementCount(product)" class="increment-button"><strong>+</strong></button><input [value]="product.cartCount"/><button (click)="decrementCount(product)" class="decrement-button"><strong>-</strong></button>
+        <button [disabled]="!product.quantity" (click)="incrementCount(product)" class="increment-button"><strong>+</strong></button><input
+            [value]="product.cartCount" /><button [disabled]="!product.cartCount" (click)="decrementCount(product)"
+            class="decrement-button"><strong>-</strong></button>
     </div>
     <div>
         <button class="delete-button" (click)="removeItem()">Delete</button>
