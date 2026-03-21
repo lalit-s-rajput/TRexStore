@@ -18,3 +18,7 @@
 - Increase quantity or delete items from the shopping cart <br />
 - Display the total amount in the shopping cart. <br />
 
+![image](https://user-images.githubusercontent.com/67156745/201486699-d92dbfc8-0300-405e-839d-cda1059d61af.png)
+![image](https://user-images.githubusercontent.com/67156745/201486719-da9b20c7-e341-4733-afab-1305db31172e.png)
+![image](https://user-images.githubusercontent.com/67156745/201486748-dcfe2a16-5664-4ebf-94c5-bb04ee4a61cf.png)
+![image](https://user-images.githubusercontent.com/67156745/201486769-b72f7e46-0e90-4de3-8609-79d575450238.png)
