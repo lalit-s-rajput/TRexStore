@@ -1,10 +1,9 @@
-# TRexStore
-Geektrust project 1
+# Geektrust TRexStore Project
 
 # simple UI, which allows a customer to do the following: 
-  Browse the catalog on a product listing page
-  Each card should have the image, name and price.
-Search using free text which is a combination of one or more of the below attributes
+Browse the catalog on a product listing page <br />
+Each card should have the image, name and price. <br />
+Search using free text which is a combination of one or more of the below attributes <br />
  Name 
  Colour 
  Type 
