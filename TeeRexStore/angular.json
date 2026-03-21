@@ -76,10 +76,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "TeeRexStore:build:production"
+              "buildTarget": "TeeRexStore:build:production"
             },
             "development": {
-              "browserTarget": "TeeRexStore:build:development"
+              "buildTarget": "TeeRexStore:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -87,7 +87,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "TeeRexStore:build"
+            "buildTarget": "TeeRexStore:build"
           }
         },
         "test": {
