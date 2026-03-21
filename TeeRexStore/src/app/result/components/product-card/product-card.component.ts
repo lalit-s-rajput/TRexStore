@@ -2,9 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CartService } from '../../services/cart-service.service';
 import {NotificationService} from '../../services/notification.service';
 @Component({
-  selector: 'app-product-card',
-  templateUrl: './product-card.component.html',
-  styleUrls: ['./product-card.component.scss']
+    selector: 'app-product-card',
+    templateUrl: './product-card.component.html',
+    styleUrls: ['./product-card.component.scss'],
+    standalone: false
 })
 export class ProductCardComponent implements OnInit {
   isEnabled = true;

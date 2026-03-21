@@ -1,10 +1,11 @@
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
-import { AbstractControl, FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, UntypedFormArray, FormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ResultService } from '../../services/result-service.service';
 @Component({
-  selector: 'app-filter-type',
-  templateUrl: './filter-type.component.html',
-  styleUrls: ['./filter-type.component.scss']
+    selector: 'app-filter-type',
+    templateUrl: './filter-type.component.html',
+    styleUrls: ['./filter-type.component.scss'],
+    standalone: false
 })
 export class FilterTypeComponent implements OnInit {
   @Input() filterData: any;
@@ -26,8 +27,13 @@ export class FilterTypeComponent implements OnInit {
   }
 
   initializeForm(){
+<<<<<<< HEAD
     this.form = new FormGroup({
       checkArray: new FormArray([
+=======
+    this.form = new UntypedFormGroup({
+      checkArray: new UntypedFormArray([
+>>>>>>> lrajput/angular-migrate
       ])
     });
   }

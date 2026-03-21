@@ -3,9 +3,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from '../../services/cart-service.service';
 
 @Component({
-  selector: 'app-navbar-container',
-  templateUrl: './navbar-container.component.html',
-  styleUrls: ['./navbar-container.component.scss'],
+    selector: 'app-navbar-container',
+    templateUrl: './navbar-container.component.html',
+    styleUrls: ['./navbar-container.component.scss'],
+    standalone: false
 })
 export class NavbarContainerComponent implements OnInit {
   cartDataCount:number;

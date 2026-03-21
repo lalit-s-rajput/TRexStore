@@ -4,9 +4,10 @@ import { NotificationService } from '../../services/notification.service';
 import { ResultService } from '../../services/result-service.service';
 
 @Component({
-  selector: 'app-product-list',
-  templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.scss']
+    selector: 'app-product-list',
+    templateUrl: './product-list.component.html',
+    styleUrls: ['./product-list.component.scss'],
+    standalone: false
 })
 export class ProductListComponent implements OnInit {
   _productData:any;
