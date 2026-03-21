@@ -7,6 +7,7 @@ import { filter, filterState } from 'src/app/core/interface/interface';
   providedIn: 'root'
 })
 export class ResultService {
+  productListData$:any = new BehaviorSubject([]);
   initialState:filterState = {
     color:[],
     gender:[],
@@ -20,7 +21,12 @@ export class ResultService {
   constructor(private http: HttpClient) { }
 
   getData(){
-    return this.http.get(this.dataUrl);
+    if(!this.productListData$.value.length){
+      this.http.get(this.dataUrl).subscribe((productList:any)=>{
+        this.productListData$.next(productList);
+      });
+    }
+    return this.productListData$;
   }
 
   getFilterState(){

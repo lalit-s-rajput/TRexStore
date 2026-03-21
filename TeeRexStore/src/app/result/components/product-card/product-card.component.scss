@@ -34,13 +34,16 @@
         width: 50%;
     }
     .product-button{
-        background-color: darkgray;
+        background-color: green;
         border: none;
         color: white;
         padding: 5px 5px;
         text-decoration: none;
         font-size: 14px;
         cursor: pointer;
+    }
+    .product-button:disabled{
+        background-color: darkgray;
     }
 }
 img{
