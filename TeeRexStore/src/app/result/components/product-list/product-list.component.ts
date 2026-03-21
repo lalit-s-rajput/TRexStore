@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { filterState } from 'src/app/core/interface/interface';
 import { NotificationService } from '../../services/notification.service';
 import { ResultService } from '../../services/result-service.service';
@@ -11,6 +11,7 @@ import { ResultService } from '../../services/result-service.service';
 export class ProductListComponent implements OnInit {
   _productData:any;
   filteredData:any;
+  isDesktopMode = true;
   resetFilter = false;
   @Input() set productData(value:any){
     if(value){
@@ -19,6 +20,10 @@ export class ProductListComponent implements OnInit {
       this.searchData('');
     }
   }
+  @HostListener('window:resize', ['$event'])
+    onResize(event:any) {
+      this.isDesktopMode = (event?.target?.innerWidth<=320) ? false : true;
+    }
   constructor(private notification: NotificationService, private resultSrvice: ResultService) { }
 
   ngOnInit(): void {
