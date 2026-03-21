@@ -7,11 +7,10 @@ import {filterData} from '../../mock/mock-data';
 })
 export class FilterListComponent implements OnInit {
   mockFilterData: any;
+  _resetFilter = false;
   @Output() filterData = new EventEmitter();
   @Input() set resetFilter(value:any){
-    if(value){
-      this.mockFilterData = filterData;
-    }
+    this._resetFilter = value ? true : false;
   }
   constructor() { }
 

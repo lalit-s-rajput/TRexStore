@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { filterState } from 'src/app/core/interface/interface';
 import { NotificationService } from '../../services/notification.service';
+import { ResultService } from '../../services/result-service.service';
 
 @Component({
   selector: 'app-product-list',
@@ -17,9 +19,12 @@ export class ProductListComponent implements OnInit {
       this.searchData('');
     }
   }
-  constructor(private notification: NotificationService) { }
+  constructor(private notification: NotificationService, private resultSrvice: ResultService) { }
 
   ngOnInit(): void {
+    this.resultSrvice.filterState.subscribe((item)=>{
+      this.filterData(item);
+    });
   }
 
   searchData(inputString:string){
@@ -28,12 +33,19 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-  filterData(data:any){
-    this.filteredData = this.filteredData?.filter((item:any)=>{
-      return item[data.type.toLowerCase()].toLowerCase() === data.value.toLowerCase();
-    });
+  filterData(filterArray:any){
+    this.filteredData = this._productData;
+    for(let filterType in filterArray){
+      if(filterArray[filterType].length){
+        filterArray[filterType].forEach((type: string) => {
+          this.filteredData = this.filteredData?.filter((item:any)=>{
+            return item[filterType.toLowerCase()].toLowerCase() === type.toLocaleLowerCase();
+          });
+        });
+      }
+    };
     this.resetFilter = false;
-    if(!this.filteredData.length){
+    if(!this.filteredData?.length){
       this.filteredData = this._productData;
       this.notification.showError('Result set is empty! Please try new filter or search.','Error!');
       this.resetFilter = true;
