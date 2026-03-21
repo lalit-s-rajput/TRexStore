@@ -1,9 +1,10 @@
 import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-product-search',
-  templateUrl: './product-search.component.html',
-  styleUrls: ['./product-search.component.scss']
+    selector: 'app-product-search',
+    templateUrl: './product-search.component.html',
+    styleUrls: ['./product-search.component.scss'],
+    standalone: false
 })
 export class ProductSearchComponent implements OnInit {
   isDesktopMode = true;

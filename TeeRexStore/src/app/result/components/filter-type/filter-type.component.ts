@@ -2,9 +2,10 @@ import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@a
 import { AbstractControl, UntypedFormArray, FormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ResultService } from '../../services/result-service.service';
 @Component({
-  selector: 'app-filter-type',
-  templateUrl: './filter-type.component.html',
-  styleUrls: ['./filter-type.component.scss']
+    selector: 'app-filter-type',
+    templateUrl: './filter-type.component.html',
+    styleUrls: ['./filter-type.component.scss'],
+    standalone: false
 })
 export class FilterTypeComponent implements OnInit {
   @Input() filterData: any;
