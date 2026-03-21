@@ -1,5 +1,5 @@
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
-import { AbstractControl, FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, UntypedFormArray, FormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ResultService } from '../../services/result-service.service';
 @Component({
   selector: 'app-filter-type',
@@ -26,8 +26,8 @@ export class FilterTypeComponent implements OnInit {
   }
 
   initializeForm(){
-    this.form = new FormGroup({
-      checkArray: new FormArray([
+    this.form = new UntypedFormGroup({
+      checkArray: new UntypedFormArray([
       ])
     });
   }
